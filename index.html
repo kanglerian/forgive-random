@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Memastikan #content berada di posisi yang benar dengan transform */
+    #content {
+      transition: all 0.4s ease-in-out; /* Menambahkan transisi untuk perubahan posisi */
+    }
+  </style>
+</head>
+
+<body>
+  <section class="bg-sky-600 relative h-screen flex justify-center items-center">
+    <div id="content" class="max-w-sm bg-white p-5 rounded-3xl space-y-4">
+      <h1 class="text-center text-lg">Dengan tulus, saya menyampaikan permohonan maaf yang mendalam atas tetes-tetes air yang tersentralisasi, hingga membasahi kain dan menimbulkan basah yang tak diinginkan 🙏</h1>
+      <div class="w-full flex justify-center items-center gap-5">
+        <button type="button" class="w-full block bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-2xl">Ya!</button>
+        <button type="button" onclick="randomLocation()" class="w-full block bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-2xl">Tidak!</button>
+      </div>
+    </div>
+  </section>
+  <script>
+    function randomLocation() {
+      const content = document.getElementById("content");
+
+      // Mendapatkan ukuran layar
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+
+      // Mendapatkan ukuran elemen content
+      const contentWidth = content.offsetWidth;
+      const contentHeight = content.offsetHeight;
+
+      // Tentukan 10 posisi yang valid
+      const positions = [
+        { left: 20, top: 20 },
+        { left: 20, top: screenHeight - contentHeight - 20 },
+        { left: screenWidth - contentWidth - 20, top: 20 },
+        { left: screenWidth - contentWidth - 20, top: screenHeight - contentHeight - 20 },
+        { left: (screenWidth - contentWidth) / 4, top: (screenHeight - contentHeight) / 4 },
+        { left: (screenWidth - contentWidth) / 4, top: (screenHeight - contentHeight) / 2 },
+        { left: (screenWidth - contentWidth) / 4, top: (screenHeight - contentHeight) * 3 / 4 },
+        { left: (screenWidth - contentWidth) / 2, top: (screenHeight - contentHeight) / 4 },
+        { left: (screenWidth - contentWidth) * 3 / 4, top: (screenHeight - contentHeight) / 4 },
+        { left: (screenWidth - contentWidth) * 3 / 4, top: (screenHeight - contentHeight) * 3 / 4 }
+      ];
+
+      // Pilih salah satu posisi dari array secara acak
+      const randomIndex = Math.floor(Math.random() * positions.length);
+      const selectedPosition = positions[randomIndex];
+
+      // Menerapkan posisi yang dipilih ke elemen content
+      content.style.position = 'absolute';
+      content.style.left = `${selectedPosition.left}px`;
+      content.style.top = `${selectedPosition.top}px`;
+    }
+  </script>
+</body>
+
+</html>
