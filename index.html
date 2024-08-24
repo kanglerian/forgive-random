@@ -9,7 +9,8 @@
   <style>
     /* Memastikan #content berada di posisi yang benar dengan transform */
     #content {
-      transition: all 0.4s ease-in-out; /* Menambahkan transisi untuk perubahan posisi */
+      transition: all 0.4s ease-in-out;
+      /* Menambahkan transisi untuk perubahan posisi */
     }
   </style>
 </head>
@@ -17,14 +18,30 @@
 <body>
   <section class="bg-sky-600 relative h-screen flex justify-center items-center">
     <div id="content" class="max-w-sm bg-white p-5 rounded-3xl space-y-4">
-      <h1 class="text-center text-lg">Dengan tulus, saya menyampaikan permohonan maaf yang mendalam atas tetes-tetes air yang tersentralisasi, hingga membasahi kain dan menimbulkan basah yang tak diinginkan 🙏</h1>
-      <div class="w-full flex justify-center items-center gap-5">
-        <button type="button" class="w-full block bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-2xl">Ya!</button>
-        <button type="button" onclick="randomLocation()" class="w-full block bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-2xl">Tidak!</button>
+      <div>
+        <h1 class="text-center text-2xl">ごめんなさい</h1>
+        <h4 class="text-sm text-center text-gray-600">Gomenasai</h4>
+      </div>
+      <h3 id="quote" class="text-center text-md">Dengan tulus, saya menyampaikan permohonan maaf yang mendalam atas
+        tetes-tetes air yang tersentralisasi, hingga membasahi kain dan menimbulkan basah yang tak diinginkan 🙏</h3>
+      <div>
+        <img src="./img/hyuga.jpg" alt="Farah" id="hyuga" class="hidden rounded-2xl">
+      </div>
+      <div id="button" class="w-full flex justify-center items-center gap-5">
+        <button type="button" onclick="gomen()"
+          class="w-full block bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-2xl">Ya!</button>
+        <button type="button" onclick="randomLocation()"
+          class="w-full block bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-2xl">Tidak!</button>
       </div>
     </div>
   </section>
   <script>
+    function gomen() {
+      document.getElementById('quote').innerText = `ありがとうございます (Arigatou Gozaimasu) Farah-Chan! 😆`
+      document.getElementById('button').style.display = 'none';
+      document.getElementById('hyuga').style.display = 'block';
+    }
+
     function randomLocation() {
       const content = document.getElementById("content");
 
