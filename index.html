@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <section class="bg-sky-600 relative h-screen flex justify-center items-center">
+  <section id="container" class="bg-amber-500 relative h-screen flex justify-center items-center">
     <div id="content" class="max-w-sm bg-white p-5 rounded-3xl space-y-4">
       <div>
         <h1 class="text-center text-2xl">ごめんなさい</h1>
@@ -29,9 +29,9 @@
       </div>
       <div id="button" class="w-full flex justify-center items-center gap-5">
         <button type="button" onclick="gomen()"
-          class="w-full block bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-2xl">Ya!</button>
+          class="w-full block bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-2xl">Ya, dimaafkan 😌</button>
         <button type="button" onclick="randomLocation()"
-          class="w-full block bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-2xl">Tidak!</button>
+          class="w-full block bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-2xl">Tidak! 😠</button>
       </div>
     </div>
   </section>
@@ -40,6 +40,9 @@
       document.getElementById('quote').innerText = `ありがとうございます (Arigatou Gozaimasu) Farah-Chan! 😆`
       document.getElementById('button').style.display = 'none';
       document.getElementById('hyuga').style.display = 'block';
+      document.getElementById('container').style.backgroundColor = '#ec4899';
+      let audio = new Audio('./img/yes.mp3');
+      audio.play();
     }
 
     function randomLocation() {
@@ -75,6 +78,9 @@
       content.style.position = 'absolute';
       content.style.left = `${selectedPosition.left}px`;
       content.style.top = `${selectedPosition.top}px`;
+
+      let audio = new Audio('./img/no.mp3');
+      audio.play();
     }
   </script>
 </body>
